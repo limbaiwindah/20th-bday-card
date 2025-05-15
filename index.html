@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Birthday Invitation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+
+            body {
+                max-width: max-content;
+            }
+
+            h1 {
+                font-size: 6em;
+                text-align: center;
+                font-family:monospace;
+            }
+
+            #date {
+                font-size: 1.5em;
+                text-align: center;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+            #bdaycake {
+                display: flex;
+                justify-content: center;   /* for horizontal centering */
+                margin: 100px 1px 100px 10px; /* top right bottom left */
+                height: 500px;
+            }
+
+            #bring-list {
+                text-align: center;
+                margin: 100px;
+            }
+
+            li {
+                list-style-type: none;
+                margin: 1em;
+                font-family: monospace;
+                font-size: 1.2em;
+            }
+
+            #food-display {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                align-items: center;
+                margin: 100px; /* this fixed the images all to be centered */
+            }
+
+            #food-display img {
+                display: inline-block;
+                width: 350px;
+                padding: 0 5px 0 5px;
+                border-radius: 15px;
+                height: 250px;
+            }
+
+            #location {
+                margin: 200px 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            #location h3 {
+                font-size: 2em;
+                font-family: monospace;
+                text-align: center;
+            }
+
+            .location-content {
+                display: flex;
+                flex-direction: column;   /* stack h3 and img vertically */
+                align-items: center;      /* center them horizontally */
+                text-align: center;
+            }
+
+            .location-content img {
+                max-width: 100%;
+                border-radius: 5px;
+                margin-top: 20px;
+                display: block;
+                width: 1000px;
+            }
+
+
+        
+        </style>
+    </head>
+    <body>
+        <h1>It's My Birthday!</h1>
+        <h2 id="date">On the 2nd September</h2>
+        <div id="bdaycake"><img src="./medias/cakegif.gif" alt="birthday cake" /></div>
+        <div id="bring-list">
+            <h3>What to bring:</h3>
+            <ul>
+                <li>Baloons (I loveee balooons)</li>
+                <li>Cake (fluffy cream mwah<3)</li>
+                <li>An appetite (There will be lots of foods)</li>
+            </ul>
+        </div>
+        <div id="food-display">
+            <img src="./medias/food1.gif" alt="cinnamon">
+            <img src="./medias/food2.gif" alt="savoury foods">
+            <img src="./medias/food3.gif" alt="pastries">
+        </div>
+        <div id="location">
+            <div class="location-content">
+                <h3>This is where you need to go:</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63753.69909241093!2d101.6586893!3d2.9289763!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb72c3429a885%3A0xeaa9297a7ef329e5!2sSecret%20Garden%20Putrajaya!5e0!3m2!1sen!2smy!4v1744896712848!5m2!1sen!2smy"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>   
+    </body>
+</html>
