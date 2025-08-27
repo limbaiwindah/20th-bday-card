@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Yomogi", cursive;
+    margin: 0;
+    padding: 40px;
+    background: #fafafa;
+    color: #6d5757;
+    font-size: 10px;
+}
+
+/* Heading styles */
+.heading h1, .heading h2, .heading p {
+    text-align: right;
+}
+
+/* HERO SECTION */
+.hero {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse; /* desktop: image first */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 40px;
+    background-color: rgb(238, 238, 231);
+    margin-bottom: 100px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.hero .vertical-content {
+    max-width: 600px;
+    flex: 1;
+}
+
+.hero .heading {
+    font-size: 1rem;
+    line-height: 30px;
+}
+
+.hero .hero-heading-description {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+.hero .hero-heading-description h3 {
+    margin-bottom: 0;
+}
+
+.hero .hero-heading-description p {
+    margin-top: 5px;
+}
+
+/* IMAGE */
+#bdaycake {
+    width: 35%;
+    height: auto;
+    border-radius: 10px;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+/* CAROUSEL */
+.carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 50px; /* spacing below carousel */
+}
+
+.carousel {
+    --carousel-duration: 40s;
+    --carousel-item-width: 280px;
+    --carousel-item-gap: 2rem;
+    width: min(90vw, 1200px);
+    border-radius: 10px;
+}
+
+.carousel-inner {
+    display: flex;
+    gap: var(--carousel-item-gap);
+    animation: scroll var(--carousel-duration) linear infinite;
+}
+
+.carousel-inner article {
+    min-width: var(--carousel-item-width);
+    max-width: var(--carousel-item-width);
+    display: grid;
+    grid-template-rows: 200px auto 1fr auto;
+    gap: 0.25rem;
+    border-radius: 10px;
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.carousel-inner h2 { 
+    font-size: 1.2rem; 
+    font-weight: 300; 
+    margin: 0.5rem 0.5rem; 
+}
+
+.carousel-inner p { 
+    font-size: 0.9rem; 
+    margin: 0 0.5rem; 
+}
+
+/* CAROUSEL ANIMATION */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50%)); }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+
+    .heading h1, .heading h2, .heading p, .hero-heading-description h3{
+        text-align: center;
+    }
+
+    .hero {
+        flex-direction: column; /* stack vertically */
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+
+    /* Force image first */
+    #bdaycake {
+        order: -1;
+        width: 80%;
+    }
+
+    .hero .vertical-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero .hero-heading-description h3{
+        font-size: 1.1rem;
+    }
+
+    .hero .hero-heading-description > p {
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    .carousel {
+        --carousel-duration: 30s;
+    }
+
+    .carousel-inner article {
+        flex: 0 0 var(--carousel-item-width);
+        min-width: 220px;
+    }
+
+    .carousel-inner img {
+        height: 150px;
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-100%)); }
+    }
+
+}
+
