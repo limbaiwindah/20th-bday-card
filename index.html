@@ -4,117 +4,144 @@
         <title>Birthday Invitation</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
+        <link rel="stylesheet" href="styles.css">
 
-            body {
-                max-width: max-content;
-            }
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-            h1 {
-                font-size: 6em;
-                text-align: center;
-                font-family:monospace;
-            }
-
-            #date {
-                font-size: 1.5em;
-                text-align: center;
-                font-family: 'Courier New', Courier, monospace;
-            }
-
-            #bdaycake {
-                display: flex;
-                justify-content: center;   /* for horizontal centering */
-                margin: 100px 1px 100px 10px; /* top right bottom left */
-                height: 500px;
-            }
-
-            #bring-list {
-                text-align: center;
-                margin: 100px;
-            }
-
-            li {
-                list-style-type: none;
-                margin: 1em;
-                font-family: monospace;
-                font-size: 1.2em;
-            }
-
-            #food-display {
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-                align-items: center;
-                margin: 100px; /* this fixed the images all to be centered */
-            }
-
-            #food-display img {
-                display: inline-block;
-                width: 350px;
-                padding: 0 5px 0 5px;
-                border-radius: 15px;
-                height: 250px;
-            }
-
-            #location {
-                margin: 200px 50px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-            
-            #location h3 {
-                font-size: 2em;
-                font-family: monospace;
-                text-align: center;
-            }
-
-            .location-content {
-                display: flex;
-                flex-direction: column;   /* stack h3 and img vertically */
-                align-items: center;      /* center them horizontally */
-                text-align: center;
-            }
-
-            .location-content img {
-                max-width: 100%;
-                border-radius: 5px;
-                margin-top: 20px;
-                display: block;
-                width: 1000px;
-            }
-
-
-        
-        </style>
+        <!-- fonts -->
     </head>
     <body>
-        <h1>It's My Birthday!</h1>
-        <h2 id="date">On the 2nd September</h2>
-        <div id="bdaycake"><img src="./medias/cakegif.gif" alt="birthday cake" /></div>
-        <div id="bring-list">
-            <h3>What to bring:</h3>
-            <ul>
-                <li>Baloons (I loveee balooons)</li>
-                <li>Cake (fluffy cream mwah<3)</li>
-                <li>An appetite (There will be lots of foods)</li>
-            </ul>
-        </div>
-        <div id="food-display">
-            <img src="./medias/food1.gif" alt="cinnamon">
-            <img src="./medias/food2.gif" alt="savoury foods">
-            <img src="./medias/food3.gif" alt="pastries">
-        </div>
-        <div id="location">
-            <div class="location-content">
-                <h3>This is where you need to go:</h3>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63753.69909241093!2d101.6586893!3d2.9289763!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdb72c3429a885%3A0xeaa9297a7ef329e5!2sSecret%20Garden%20Putrajaya!5e0!3m2!1sen!2smy!4v1744896712848!5m2!1sen!2smy"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+        <div class="hero">
+            <div class="vertical-content">
+
+                <div class="heading">
+                    <h1>it's my cake and candles day</h1>
+                    <h2 id="date">on this 2nd September 2025</h2>
+                    <p>and i am 20 candles on my cream today.</p>
+                </div>
+
+                <div class="hero-heading-description">
+                    <h3>bday cards</h3>
+                    <p>normally people give birthday cards to the person celebrating it; but this year, I'm going to write a bday cards
+                        to anyone my status/stories can reach - because i am turning 20, but i feel like i grew up too fast that i couldn't
+                        remember my yesterdays, and i certainly won't know about tomorrows. all i have is this moment, but im not sure what
+                        to do with this present.
+                    </p>
+                </div>
             </div>
-        </div>   
+            
+            <img src="./medias/cake.jpeg" id="bdaycake" alt="birthday cake" />
+        </div>
+        
+        <div class="carousel-wrapper">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Original cards -->
+                    <article>
+                        <img src="./medias/cat_hiding.jpeg" alt="cat hiding">
+                        <h2>Scaredly Cat</h2>
+                        <div>
+                            <p>I think I was, most of the time, like a scaredly cat. I think that was a wasted time. But I am still wasting time.</p>
+                        </div>
+                    </article>
+
+                    <article>
+                        <img src="./medias/eggs_on_pan.jpeg" alt="eggs on pan">
+                        <h2>Fried Eggs</h2>
+                        <div>
+                            <p>Fried eggs and soy sauce were always my favourite. My skin protested now though.</p>
+                        </div>
+                    </article>
+
+                    <article>
+                        <img src="./medias/hair_on_floor.jpeg" alt="hair on floor">
+                        <h2>Hair Mishaps</h2>
+                        <div>
+                            <p>I messed my hair a few times during these two decades, just because... or maybe it was a bad impulse control. I always end up wanting them to grow back long, but they were always cut short before it reached my waist.</p>
+                        </div>
+                    </article>
+
+                    <article>
+                        <img src="./medias/popcorns.jpeg" alt="popcorns">
+                        <h2>Popcorn Daydreams</h2>
+                        <div>
+                            <p>Maybe someday I should eat popcorns while sitting on a green field while the sun is setting down and there are football players running in ant sizes in my eyes.</p>
+                        </div>
+                    </article>
+
+                    <article>
+                        <img src="./medias/strawberry_in_sink.jpeg" alt="strawberry in sink">
+                        <h2>Slice of Life</h2>
+                        <div>
+                            <p>I wanna romanticize slice of life.</p>
+                        </div>
+                    </article>
+
+                    <!-- Duplicate the cards for smooth infinite scroll -->
+                    <article>
+                        <img src="./medias/cat_hiding.jpeg" alt="cat hiding">
+                        <h2>Scaredly Cat</h2>
+                        <div>
+                            <p>I think I was, most of the time, like a scaredly cat. I think that was a wasted time. But I am still wasting time.</p>
+                        </div>
+                    </article>
+
+                    <article>
+                        <img src="./medias/eggs_on_pan.jpeg" alt="eggs on pan">
+                        <h2>Fried Eggs</h2>
+                        <div>
+                            <p>Fried eggs and soy sauce were always my favourite. My skin protested now though.</p>
+                        </div>
+                    </article>
+
+                    <article>
+                        <img src="./medias/hair_on_floor.jpeg" alt="hair on floor">
+                        <h2>Hair Mishaps</h2>
+                        <div>
+                            <p>I messed my hair a few times during these two decades, just because... or maybe it was a bad impulse control. I always end up wanting them to grow back long, but they were cut short before it reached my waist.</p>
+                        </div>
+                    </article>
+
+                    <article>
+                        <img src="./medias/popcorns.jpeg" alt="popcorns">
+                        <h2>Popcorn Daydreams</h2>
+                        <div>
+                            <p>Maybe someday I should eat popcorns while sitting on a green field while the sun is setting down and there are football players running in ant sizes in my eyes.</p>
+                        </div>
+                    </article>
+
+                    <article>
+                        <img src="./medias/strawberry_in_sink.jpeg" alt="strawberry in sink">
+                        <h2>Slice of Life</h2>
+                        <div>
+                            <p>I wanna romanticize slice of life.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+
     </body>
+
+    <script>
+        $.fn.commentCards = function() {
+        return this.each(function() {
+            var $this = $(this),
+                $cards = $this.find('.card'),
+                $current = $cards.filter('.card--current');
+
+            $cards.on('click', function() {
+            if (!$current.is(this)) {
+                $cards.removeClass('card--current');
+                $current = $(this).addClass('card--current');
+            }
+            });
+        });
+        };
+
+        $(document).ready(function() {
+        $('.cards').commentCards();
+        });
+</script>
 </html>
