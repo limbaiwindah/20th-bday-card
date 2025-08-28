@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 
+/* ------------------ GLOBAL ------------------ */
 *,
 *::before,
 *::after {
@@ -21,12 +22,14 @@ body {
     font-size: 10px;
 }
 
-/* Heading styles */
-.heading h1, .heading h2, .heading p {
+/* ------------------ HEADINGS ------------------ */
+.heading h1,
+.heading h2,
+.heading p {
     text-align: right;
 }
 
-/* HERO SECTION */
+/* ------------------ HERO SECTION ------------------ */
 .hero {
     width: 100%;
     display: flex;
@@ -38,7 +41,6 @@ body {
     background-color: rgb(238, 238, 231);
     margin-bottom: 100px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    flex-shrink: 0;
     padding: 10px;
     border-radius: 10px;
 }
@@ -68,7 +70,7 @@ body {
     margin-top: 5px;
 }
 
-/* IMAGE */
+/* ------------------ HERO IMAGE ------------------ */
 #bdaycake {
     width: 35%;
     height: auto;
@@ -79,7 +81,7 @@ body {
     flex-shrink: 0;
 }
 
-/* CAROUSEL */
+/* ------------------ CAROUSEL ------------------ */
 .carousel-wrapper {
     width: 100%;
     overflow: hidden;
@@ -131,19 +133,22 @@ body {
     margin: 0 0.5rem; 
 }
 
-/* CAROUSEL ANIMATION */
+/* ------------------ CAROUSEL ANIMATION ------------------ */
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-50%)); }
 }
 
-/* MOBILE RESPONSIVE */
+/* ------------------ MOBILE RESPONSIVE ------------------ */
 @media (max-width: 768px) {
     body {
         padding: 5px;
     }
 
-    .heading h1, .heading h2, .heading p, .hero-heading-description h3{
+    .heading h1,
+    .heading h2,
+    .heading p,
+    .hero-heading-description h3 {
         text-align: center;
     }
 
@@ -165,7 +170,7 @@ body {
         text-align: center;
     }
 
-    .hero .hero-heading-description h3{
+    .hero .hero-heading-description h3 {
         font-size: 1.1rem;
     }
 
@@ -174,23 +179,31 @@ body {
         text-align: justify;
     }
 
+    /* MOBILE CAROUSEL TOUCHABLE */
     .carousel {
-        --carousel-duration: 30s;
+        --carousel-duration: 0s; /* disable auto animation */
+    }
+
+    .carousel-wrapper {
+        width: 100%;
+        overflow: none;
+        margin-bottom: 50px; /* spacing below carousel */
+    }
+
+    .carousel-inner {
+        animation: none; /* stop animation */
+        overflow-x: auto; /* allow scrolling */
+        scroll-snap-type: x mandatory; /* snap cards */
+        -webkit-overflow-scrolling: touch; /* smooth momentum scroll */
     }
 
     .carousel-inner article {
-        flex: 0 0 var(--carousel-item-width);
+        flex: 0 0 auto;
         min-width: 220px;
+        scroll-snap-align: start;
     }
 
     .carousel-inner img {
         height: 150px;
     }
-
-    @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-100%)); }
-    }
-
 }
-
