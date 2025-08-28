@@ -11,6 +11,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* prevents horizontal scroll */
 }
 
 body {
@@ -18,7 +19,7 @@ body {
     margin: 0;
     padding: 40px;
     background: #fafafa;
-    color: #6d5757;
+    color: #382d2d;
     font-size: 10px;
 }
 
@@ -38,10 +39,10 @@ body {
     justify-content: space-around;
     align-items: flex-start;
     gap: 40px;
-    background-color: rgb(238, 238, 231);
+    background-color: rgb(230, 241, 244);
     margin-bottom: 100px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
 }
 
@@ -88,6 +89,13 @@ body {
     margin-bottom: 50px; /* spacing below carousel */
 }
 
+.carousel-wrapper > h3 {
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: center;
+    text-decoration: 1.2px underline;
+}
+
 .carousel {
     --carousel-duration: 40s;
     --carousel-item-width: 280px;
@@ -113,6 +121,7 @@ body {
     padding: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     flex-shrink: 0;
+    margin: 0 0 50px 0;
 }
 
 .carousel-inner img {
@@ -132,6 +141,106 @@ body {
     font-size: 0.9rem; 
     margin: 0 0.5rem; 
 }
+
+
+/* ------------------ TIMELINE (Corrected Version) ------------------ */
+.timeline-wrapper {
+    width: 100%;
+    max-width: 900px; /* Added max-width for better control on large screens */
+    margin: 80px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Timeline line */
+.timeline-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: #d8cfcf;
+    transform: translateX(-50%);
+}
+
+/* Timeline groups (childhood, adolescence, etc.) */
+.timeline-wrapper > div {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Each article (memory) - STYLED AS A POLAROID */
+.timeline-wrapper article {
+    position: relative;
+    width: 45%;
+    background: #fff;
+    /* --- Padding creates the polaroid border --- */
+    padding: 15px 15px 25px 15px; 
+    border-radius: 5px; /* --- Subtle radius for polaroid frame --- */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    max-width: 350px;
+}
+
+/* Alternate left-right placement */
+.timeline-wrapper > div article:nth-child(odd) {
+    align-self: flex-start;
+}
+
+.timeline-wrapper > div article:nth-child(even) {
+    align-self: flex-end;
+}
+
+/* Small dot on the line */
+.timeline-wrapper article::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #f8bebe;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #d8cfcf;
+}
+
+/* Position the dot left or right depending */
+.timeline-wrapper > div article:nth-child(odd)::before {
+    right: -42px; /* --- ADJUSTED: To align perfectly with the center line --- */
+}
+
+.timeline-wrapper > div article:nth-child(even)::before {
+    left: -42px; /* --- ADJUSTED: To align perfectly with the center line --- */
+}
+
+/* Timeline images - THE "PHOTO" PART */
+.timeline-wrapper img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3.5/4;
+    object-fit: cover;
+    border-radius: 3px; /* --- Photo has its own slight radius --- */
+    display: block; /* --- Removes extra space below image --- */
+}
+
+/* Text styling - THE "CAPTION" PART */
+.timeline-wrapper h2 {
+    font-size: 1.1rem;
+    margin: 15px 0 5px 0; /* --- Added top margin for space from photo --- */
+    font-weight: 500;
+}
+
+.timeline-wrapper p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #6d5757;
+    margin: 0; /* --- Reset margin --- */
+}
+
 
 /* ------------------ CAROUSEL ANIMATION ------------------ */
 @keyframes scroll {
@@ -186,7 +295,7 @@ body {
 
     .carousel-wrapper {
         width: 100%;
-        overflow: none;
+        overflow: hidden; /* Changed from 'none' to 'hidden' */
         margin-bottom: 50px; /* spacing below carousel */
     }
 
@@ -204,6 +313,58 @@ body {
     }
 
     .carousel-inner img {
-        height: 150px;
+        height: 200px;
+    }
+
+    /* ------------------ TIMELINE MOBILE (Corrected Version) ------------------ */
+    .timeline-wrapper::before {
+        left: 20px; /* Adjusted for a bit more space */
+        transform: translateX(0);
+    }
+
+    .timeline-wrapper article {
+        width: auto; /* Let it be flexible */
+        margin-left: 45px; /* Push it right of the timeline line */
+        margin-right: 10px; /* Add some space on the right edge */
+        align-self: stretch !important; /* Override desktop align-self */
+    }
+
+    /* Ensure dot is always on the left */
+    .timeline-wrapper > div article::before,
+    .timeline-wrapper > div article:nth-child(odd)::before,
+    .timeline-wrapper > div article:nth-child(even)::before {
+        left: -30px; /* Position relative to the new line */
+        right: auto;
+    }
+}
+
+/* ------------------ TIMELINE WRITING ANIMATION ------------------ */
+/* ------------------ FOR WIDE SCREENS >= 769px ------------------ */
+
+@media (min-width: 769px) {
+    /* Hide the caption text by default on large screens */
+    .timeline-wrapper .polaroid-caption {
+        opacity: 0;
+        transition: opacity 0.3s ease-in;
+    }
+
+    /* When the JS adds 'is-visible', make the container visible */
+    .timeline-wrapper .polaroid-caption.is-visible {
+        opacity: 1;
+    }
+
+    /* Style for the typing cursor on the h2 and p */
+    .timeline-wrapper .polaroid-caption h2.typing::after,
+    .timeline-wrapper .polaroid-caption p.typing::after {
+        content: '▋'; /* You can use '|' or '▋' */
+        animation: blink 0.7s infinite;
+        color: #382d2d;
+        margin-left: 3px;
+    }
+
+    /* Blinking animation for the cursor */
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
     }
 }
