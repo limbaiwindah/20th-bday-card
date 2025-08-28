@@ -1,2 +1,2 @@
-# BirthdayInvite
-one of my small project - a cute birthday party invitation
+# 20th Birthday Card
+one of my small project 
