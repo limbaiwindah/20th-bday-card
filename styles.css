@@ -71,6 +71,18 @@ body {
     margin-top: 5px;
 }
 
+.hero span {
+  display: inline-block;
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+
 /* ------------------ HERO IMAGE ------------------ */
 #bdaycake {
     width: 35%;
@@ -159,6 +171,13 @@ body {
 
 
 /* ------------------ TIMELINE ------------------ */
+
+/* my age, or anything like that */
+.little-caption {
+    font-style: italic;
+    color: #a29292 !important;
+}
+
 .timeline-wrapper {
     width: 100%;
     max-width: 900px; /* Added max-width for better control on large screens */
@@ -255,6 +274,113 @@ body {
     color: #6d5757;
     margin: 0; /* --- Reset margin --- */
 }
+
+
+/* ------------------ APPRECIATION GALLERY ------------------ */
+.appreciation {
+    max-width: 1000px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.appreciation h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.appreciation p {
+    font-size: 1rem;
+    margin-bottom: 40px;
+    color: #6d5757;
+}
+
+.appreciation-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+/* Polaroid Style Cards */
+.appreciation-gallery article {
+    background: #fff;
+    padding: 15px 15px 25px 15px; /* bottom space = caption area */
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotate(var(--tilt, 0deg)); /* playful tilt */
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+}
+
+/* Random polaroid tilt */
+.appreciation-gallery article:nth-child(odd) {
+    --tilt: -2.5deg;
+}
+.appreciation-gallery article:nth-child(even) {
+    --tilt: 2.5deg;
+}
+
+/* Hover effect */
+.appreciation-gallery article:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 5;
+}
+
+/* Image inside polaroid */
+.appreciation-gallery img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+/* Caption styling */
+.appreciation-gallery .polaroid-caption {
+    text-align: center;
+}
+
+.appreciation-gallery h2 {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+    font-weight: 500;
+}
+
+.appreciation-gallery p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.appreciation-gallery .little-caption {
+    font-size: 0.8rem;
+    color: #a29292 !important;
+    margin-top: 5px;
+}
+
+
+
+/* THANK YOU MESSAGE */
+.thank-you-wrapper {
+    background-color: rgb(230, 241, 244);
+    border-radius: 15px;
+    padding: 10px;
+    width: 70%;
+    margin: 70px auto; /* top & bottom spacing, left & right auto-center */
+}
+
+.thank-you-msg {
+    font-size: 1rem;
+    text-align: center;
+}
+
 
 /* GOOGLE FORM STYLE */
 .google-form {
@@ -380,6 +506,32 @@ body {
         right: auto;
     }
 
+    /* APPRECIATION GALLERY */
+    @media (max-width: 600px) {
+    .appreciation-gallery {
+        grid-template-columns: 1fr; /* stack each appreciation card */
+        gap: 1.5rem; /* give breathing space */
+    }
+
+    .appreciation-gallery article img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .polaroid-caption h2 {
+        font-size: 1.1rem;
+    }
+
+    .polaroid-caption p {
+        font-size: 0.9rem;
+    }
+
+    .little-caption {
+        font-size: 0.75rem;
+        opacity: 0.7;
+    }
+    }
 
     /* GOOGLE FORM STYLE */
     .google-form {
