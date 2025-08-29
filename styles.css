@@ -158,7 +158,7 @@ body {
 }
 
 
-/* ------------------ TIMELINE (Corrected Version) ------------------ */
+/* ------------------ TIMELINE ------------------ */
 .timeline-wrapper {
     width: 100%;
     max-width: 900px; /* Added max-width for better control on large screens */
@@ -313,6 +313,21 @@ body {
     .hero .hero-heading-description > p {
         font-size: 1rem;
         text-align: justify;
+    }
+
+    /* ------ JUMP TO WISH BUTTON ----- */
+    .jump-to-btn {
+        text-align: center;
+        margin: 40px 0 50px 0;
+    }
+
+    .jump-to-btn > a {
+        text-decoration: none;
+        font-size: 1rem;
+        background-color: cadetblue;
+        border-radius: 10px;
+        color: white;
+        padding: 15px;
     }
 
     /* MOBILE CAROUSEL TOUCHABLE */
