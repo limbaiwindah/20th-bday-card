@@ -256,9 +256,10 @@ body {
     margin: 0; /* --- Reset margin --- */
 }
 
+/* GOOGLE FORM STYLE */
 .google-form {
     width: 100%;
-    height: 700px;
+    height: 1000px;
 }
 
 .google-form-header {
