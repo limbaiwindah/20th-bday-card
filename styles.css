@@ -324,7 +324,7 @@ body {
 
     .jump-to-btn > a {
         text-decoration: none;
-        font-size: 1rem;
+        font-size: 1rem !important;
         background-color: cadetblue;
         border-radius: 10px;
         color: white;
