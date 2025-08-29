@@ -275,7 +275,8 @@ body {
     100% { transform: translateX(calc(-50%)); }
 }
 
-/* ------------------ MOBILE RESPONSIVE ------------------ */
+
+/* ------------------ MOBILE RESPONSIVE (SMALL SCREENS)------------------ */
 @media (max-width: 768px) {
     body {
         padding: 5px;
@@ -358,7 +359,7 @@ body {
         height: 200px;
     }
 
-    /* ------------------ TIMELINE MOBILE (Corrected Version) ------------------ */
+    /* ------------------ TIMELINE MOBILE ------------------ */
     .timeline-wrapper::before {
         left: 20px; /* Adjusted for a bit more space */
         transform: translateX(0);
