@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Birthday Invitation</title>
+        <title>Windah 20th Birthday Card</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -31,6 +31,10 @@
             
             <img src="./medias/cake.jpeg" id="bdaycake" alt="birthday cake" />
         </div>
+
+        <section class="jump-to-btn">
+            <a href="#wish-bday">Jump to Wish</a>
+        </section>
         
         <div class="carousel-wrapper">
             <h3>carousel of life</h3>
@@ -259,10 +263,7 @@
                         <p>I don't remember the room number, but I remember I cried a lot for the first two weeks. Homesick.</p>
                     </div>
                 </article>
-                
-            </div>
 
-            <div class="last-teen">
                 <article>
                     <img src="./medias/timelines/last-teen-bday.JPG" alt="reached 19">
                     
@@ -271,9 +272,7 @@
                         <p>My first birthday celebration without my family.</p>
                     </div>
                 </article>
-            </div>
 
-            <div class="entering-adulthood">
                 <article>
                     <img src="./medias/timelines/entering-adulthood-19.JPG" alt="entering-adulthood">
                     
@@ -282,9 +281,18 @@
                         <p>Isn't it a little too fast? I thought I still had a lot of time.</p>
                     </div>
                 </article>
+                
             </div>
+                
         </div>
 
+        <!-- BDAY WISH GOOGLE FORM -->
+        <div id="wish-bday">
+            <h2 class="google-form-header">Wanna Wish Me Happy Bday? 💝</h2>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScCWAHYNWp1nC6mpPhDG-la8D83r-PsgpI9hDy_eAtNBCRHZg/viewform?embedded=true" 
+            frameborder="0" marginheight="0" marginwidth="0" class="google-form" >Loading…</iframe>
+        </div>
+        
     </body>
 
     <script>
@@ -302,7 +310,7 @@
                     
                     if (i < text.length) {
                         element.innerHTML += text.charAt(i);
-                        setTimeout(() => typewriter(element, text, i + 1), 100); // Typing speed
+                        setTimeout(() => typewriter(element, text, i + 1), 50); // Typing speed
                     } else {
                         // When done, remove the cursor
                         element.classList.remove('typing');
@@ -333,14 +341,14 @@
                             // Wait for the heading to finish typing, then type the paragraph
                             setTimeout(() => {
                                 typewriter(paragraph, paragraphText);
-                            }, headingText.length * 100 + 300); // Delay based on heading length
+                            }, headingText.length * 50 + 200); // Delay based on heading length
 
                             // Stop observing this element so the animation doesn't re-run
                             observer.unobserve(entry.target);
                         }
                     });
                 }, {
-                    threshold: 0.3 // Trigger when 30% of the element is visible
+                    threshold: 0.5 // Trigger when 50% of the element is visible
                 });
 
                 // Tell the observer to watch all timeline articles
